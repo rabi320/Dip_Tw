@@ -144,7 +144,7 @@ if st.button('Results:'):
     most_liked_tweet = day_df[cond2]["tweet"].values[0]
     most_liked_tweet = most_liked_tweet
     st.text(f"{type(most_liked_tweet)} Likes: {day_df['likes_count'].max()}")
-    st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
+    st.text(f"{most_liked_tweet.encode('UTF-8-sig').decode('windows-1252')}")
     
     st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
     
