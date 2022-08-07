@@ -144,6 +144,6 @@ if st.button('Results:'):
     most_liked_tweet = day_df[cond2]["tweet"].values[0]
     most_liked_tweet = most_liked_tweet
     st.text(f"{type(most_liked_tweet)} Likes: {day_df['likes_count'].max()}")
-    
+    st.markdown(most_liked_tweet)
     
     
