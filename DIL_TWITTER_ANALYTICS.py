@@ -159,3 +159,5 @@ if st.button('Results:'):
     i1 = most_liked_tweet
     st.text('value 1: "', i1, '"')
     st.markdown("Hey")
+    html = "<p>The Arabic word for 'website' is <bdi>موقع الكتروني</bdi>, and in Hebrew it is <bdi>אֲתַר אִינטֶרנֶט</bdi>.</p>
+    st.text(html,unsafe_allow_html=True)
