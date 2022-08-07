@@ -146,7 +146,7 @@ if st.button('Results:'):
     st.text(f"{type(most_liked_tweet)} Likes: {day_df['likes_count'].max()}")
 
     st.markdown("Hey")
-    html = f"<p>Most liked tweet: <bdi>{bytes(most_liked_tweet, 'iso-8859-1').decode('windows-1255')}</bdi>.</p>"
+    html = f"<p>Most liked tweet: <bdi>{str(bytes(most_liked_tweet, 'iso-8859-1').decode('windows-1255'))}</bdi>.</p>"
     st.markdown(html,unsafe_allow_html=True)
     st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
     
