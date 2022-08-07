@@ -59,11 +59,6 @@ date_select = st.date_input('Choose Date:')
 
     
 
-
-
-
-
-@st.cache(suppress_st_warning=True)
 def dip_imgs_daily(days_ago = 0):
     
     import warnings
