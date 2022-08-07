@@ -175,7 +175,7 @@ if st.button('Results:'):
 
         important = []
 
-        all_words = tokenizer(" ".join(day_df.tweet.values.tolist()))
+        all_words = tokenizer(" ".join(day_df.drop_duplicates().tweet.values.tolist()))
 
         regex = '(guylerer)|[^a-z0-9]'
 
