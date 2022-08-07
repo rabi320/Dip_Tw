@@ -131,5 +131,5 @@ if st.button('Results:'):
     try: 
         st.image(dip_imgs_daily(days_ago = td))
     except:
-        st.write(f"invalid date: {str(date_select)}")
+        st.write(f"{dip_imgs_daily(days_ago = td)}")
     
