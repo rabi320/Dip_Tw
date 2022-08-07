@@ -128,8 +128,22 @@ if st.button('Results:'):
     td = datetime.now().date() - date_select
     td = td.days
     #st.write(f'{td}')
+    st.write(f"""## Stats for {date}""")
+        
     try: 
         st.image(dip_imgs_daily(days_ago = td))
+        
     except:
         st.write(f"{dip_imgs_daily(days_ago = td)}")
+    
+    st.write(f"""### most liked tweet: """)
+    date = datetime.strftime(datetime.now() - timedelta(td), '%Y-%m-%d')
+    cond1 = df['date']==date
+    day_df = df[cond1]
+    cond2 = day_df['likes_count']==day_df['likes_count'].max()
+    most_liked_tweet = day_df[cond2]["tweet"].values[0]
+    
+    st.write(f"{most_liked_tweet} Likes: {day_df['likes_count'].max()}")
+    
+    
     
