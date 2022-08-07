@@ -144,7 +144,7 @@ if st.button('Results:'):
     most_liked_tweet = day_df[cond2]["tweet"].values[0]
     
     st.write(f"{most_liked_tweet} Likes: {day_df['likes_count'].max()}")
-    print("היי")
+    st.text('היי')
     
     
     
