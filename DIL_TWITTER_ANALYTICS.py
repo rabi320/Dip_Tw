@@ -183,7 +183,6 @@ if st.button('Results:'):
     filltered_words = [word for word in all_words if word not in stop_words and re.search(regex,word)]
     top_10_w = Counter(filltered_words).most_common(10)
 
-    arr = 
     fig, ax = plt.subplots()
     ax.bar([i for i,_ in top_10_w],[j for _,j in top_10_w])
     ax.suptitle('Top 10 most common words')
