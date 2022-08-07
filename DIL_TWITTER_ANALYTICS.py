@@ -186,5 +186,6 @@ if st.button('Results:'):
     fig, ax = plt.subplots()
     ax.bar([i[::-1] for i,_ in top_10_w[1:]],[j for _,j in top_10_w[1:]])
     ax.set_title('Top 10 most common words')
-    ax.set_xticks(rotation = 90)
+    #ax.set_xticks(rotation = 90)
+    ax.set_xticklabels([i[::-1] for i,_ in top_10_w[1:]], rotation = 45)
     st.pyplot(fig)
