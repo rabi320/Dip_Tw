@@ -144,20 +144,7 @@ if st.button('Results:'):
     most_liked_tweet = day_df[cond2]["tweet"].values[0]
     most_liked_tweet = most_liked_tweet
     st.text(f"{type(most_liked_tweet)} Likes: {day_df['likes_count'].max()}")
-  
-    st.markdown("""
-    <meta charset="utf-8">
-    <style>
-    p, div, input, label {
-      unicode-bidi:bidi-override;
-      direction: RTL;
-      text-align: right;
-    }
-    </style>
-        """, unsafe_allow_html=True)
 
-    i1 = most_liked_tweet
-    st.text('value 1: "', i1, '"')
     st.markdown("Hey")
     html = "<p>The Arabic word for 'website' is <bdi>موقع الكتروني</bdi>, and in Hebrew it is <bdi>אֲתַר אִינטֶרנֶט</bdi>.</p>
     st.text(html,unsafe_allow_html=True)
