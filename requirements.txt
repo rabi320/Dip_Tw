@@ -45,7 +45,6 @@ more-itertools==7.2.0
 multidict==4.7.1
 nltk==3.4.5
 pathtools==0.1.2
-protobuf==4.0.0
 pycares==3.1.0
 pycparser==2.19
 pygeohash==1.2.0
