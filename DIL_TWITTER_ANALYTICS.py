@@ -165,6 +165,6 @@ p, div, input, label {
 </style>
     """, unsafe_allow_html=True)
 
-i1 = st.text_input("text input 1")
+i1 = most_liked_tweet
 st.write('value 1: "', i1, '"')
 st.markdown("Hey")
