@@ -128,7 +128,7 @@ if st.button('Results:'):
     td = datetime.now().date() - date_select
     td = td.days
     #st.write(f'{td}')
-    st.write(f"""## Stats for {date}""")
+    st.write(f"""## Stats for {date_select}""")
         
     try: 
         st.image(dip_imgs_daily(days_ago = td))
