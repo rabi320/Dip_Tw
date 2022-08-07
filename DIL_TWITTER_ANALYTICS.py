@@ -170,7 +170,7 @@ if st.button('Results:'):
     #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
     #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
     st.write("### Top 10 liked tweets")
-    st.dataframe(day_df[["tweet","likes_count"]].sort_values('likes_count', ascending = False)[:10])
+    st.write(day_df[["tweet","likes_count"]].sort_values('likes_count', ascending = False)[:10])
      
     important = []
 
