@@ -9,6 +9,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 from urllib.request import urlopen
+import re
+from collections import Counter
+
+
+st.markdown("![](https://serviced.co.il/wp-content/uploads/2021/08/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%93%D7%99%D7%A4%D7%9C%D7%95%D7%9E%D7%98.jpg)")
 
 
 #with st.spinner('Loading tweets in app...'):
@@ -57,7 +62,24 @@ st.write('---')
 date_select = st.date_input('Choose Date:')
 
 
-    
+def tokenizer(text):    
+    # remove html marks
+    text = re.sub('<[^>]*>', '', text)
+    # remove emitcons (example: :), :D )
+    emoticons = re.findall('(?::|;|=)(?:-)?(?:\)|\(|D|P)', text.lower())
+    # remove non word characters
+    text = re.sub('[\W]+', ' ', text.lower()) +\
+        ' '.join(emoticons).replace('-', '')
+    tokenized = text.split()
+    return tokenized
+
+#hebrew stop words
+from urllib.request import urlopen
+url = "https://raw.githubusercontent.com/gidim/HebrewStopWords/master/heb_stopwords.txt"
+stop_words = pd.read_csv(url,header = None).iloc[:,0].values.tolist()
+
+
+
 
 def dip_imgs_daily(days_ago = 0):
     
@@ -147,5 +169,22 @@ if st.button('Results:'):
     st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}")
     #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
     #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
+    st.write("### Top 10 liked tweets")
+    st.dataframe(day_df[["tweet","likes_count"]].sort_values('likes_count', ascending = False)[:10])
+     
+    important = []
+
+    all_words = tokenizer(" ".join(day_df.tweet.values.tolist()))
+
+    regex = '(guylerer)|[^a-z0-9]'
     
-    
+
+
+    filltered_words = [word for word in all_words if word not in stop_words and re.search(regex,word)]
+    top_10_w = Counter(filltered_words).most_common(10)
+
+    arr = 
+    fig, ax = plt.subplots()
+    ax.bar([i for i,_ in top_10_w],[j for _,j in top_10_w])
+    ax.suptitle('Top 10 most common words')
+    st.pyplot(fig)
