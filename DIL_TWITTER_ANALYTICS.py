@@ -156,5 +156,5 @@ if st.button('Results:'):
         """, unsafe_allow_html=True)
 
     i1 = most_liked_tweet
-    st.write('value 1: "', i1, '"')
+    st.text('value 1: "', i1, '"')
     st.markdown("Hey")
