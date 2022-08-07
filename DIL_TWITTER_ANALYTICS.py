@@ -151,5 +151,20 @@ input \{
   direction: RTL;
 \}
 </style>
-    {most_liked_tweet}
     """, unsafe_allow_html=True)
+    
+    
+
+st.markdown("""
+<style>
+p, div, input, label {
+  unicode-bidi:bidi-override;
+  direction: RTL;
+  text-align: right;
+}
+</style>
+    """, unsafe_allow_html=True)
+
+i1 = st.text_input("text input 1")
+st.write('value 1: "', i1, '"')
+st.markdown("Hey")
