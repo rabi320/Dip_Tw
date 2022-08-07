@@ -184,6 +184,6 @@ if st.button('Results:'):
     top_10_w = Counter(filltered_words).most_common(10)
 
     fig, ax = plt.subplots()
-    ax.bar([i for i,_ in top_10_w],[j for _,j in top_10_w])
+    ax.bar([i[::-1] for i,_ in top_10_w],[j for _,j in top_10_w])
     #ax.title('Top 10 most common words')
     st.pyplot(fig)
