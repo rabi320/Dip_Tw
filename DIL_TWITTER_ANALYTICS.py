@@ -185,5 +185,5 @@ if st.button('Results:'):
 
     fig, ax = plt.subplots()
     ax.bar([i for i,_ in top_10_w],[j for _,j in top_10_w])
-    ax.suptitle('Top 10 most common words')
+    ax.title('Top 10 most common words')
     st.pyplot(fig)
