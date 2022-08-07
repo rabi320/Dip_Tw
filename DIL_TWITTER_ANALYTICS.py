@@ -142,8 +142,9 @@ if st.button('Results:'):
     day_df = df[cond1]
     cond2 = day_df['likes_count']==day_df['likes_count'].max()
     most_liked_tweet = day_df[cond2]["tweet"].values[0]
+    most_liked_person = day_df[cond2]["username"].values[0]
     most_liked_tweet = most_liked_tweet
-    st.text(f"{most_liked_tweet} Likes: {day_df['likes_count'].max()}")
+    st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}")
     #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
     #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
     
