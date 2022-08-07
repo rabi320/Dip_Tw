@@ -148,3 +148,4 @@ if st.button('Results:'):
     st.markdown("Hey")
     html = f"<p>Most liked tweet: <bdi>{most_liked_tweet}</bdi>.</p>"
     st.markdown(html,unsafe_allow_html=True)
+    st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
