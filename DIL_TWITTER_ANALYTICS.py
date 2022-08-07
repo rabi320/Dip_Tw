@@ -146,6 +146,7 @@ if st.button('Results:'):
     st.text(f"{type(most_liked_tweet)} Likes: {day_df['likes_count'].max()}")
   
     st.markdown("""
+    <meta charset="utf-8">
     <style>
     p, div, input, label {
       unicode-bidi:bidi-override;
