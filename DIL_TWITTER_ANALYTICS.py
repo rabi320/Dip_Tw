@@ -133,8 +133,8 @@ if st.button('Results:'):
     td = datetime.now().date() - date_select
     td = td.days
     #st.write(f'{td}')
-    try: 
-        st.image(dip_imgs_daily(days_ago = td))
-    except:
-        st.write(f"invalid date: {str(date_select)}")
+    #try: 
+    st.image(dip_imgs_daily(days_ago = td))
+    #except:
+        #st.write(f"invalid date: {str(date_select)}")
     
