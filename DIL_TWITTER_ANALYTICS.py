@@ -146,5 +146,12 @@ if st.button('Results:'):
     st.text(f"{type(most_liked_tweet)} Likes: {day_df['likes_count'].max()}")
     st.markdown(most_liked_tweet)
     st.caption(f'<p>{most_liked_tweet}</p>', unsafe_allow_html=True)
-    
+    st.markdown("""
+<style>
+input {
+  unicode-bidi:bidi-override;
+  direction: RTL;
+}
+</style>
+    """, unsafe_allow_html=True)
     
