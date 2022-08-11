@@ -193,6 +193,6 @@ if st.button('Results:'):
         #ax.set_xticks(rotation = 90)
         ax.set_xticklabels([i[::-1] for i,_ in top_10_w[1:]], rotation = 45)
         st.pyplot(fig)
-    except exception as e:
+    except Exception as e:
         st.write(f'No Data avilable for {date_select}')
         st.write(f'{e}')
