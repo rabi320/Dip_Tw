@@ -83,7 +83,7 @@ def dip_imgs_daily(days_ago = 0):
     import warnings
     warnings.filterwarnings("ignore")
     date = datetime.strftime(datetime.now() - timedelta(days_ago), '%Y-%m-%d')
-    cond = df['date']==date
+    cond = df['date']==str(date)
     today_dip_cols = ["time","username","tweet","likes_count","photos","retweets_count","replies_count","hashtags"]
     photo_df = df[cond].drop_duplicates(subset=["tweet","photos"])[df["photos"]!=""][today_dip_cols]
 
