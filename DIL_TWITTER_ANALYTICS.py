@@ -20,7 +20,10 @@ st.markdown("""<img src="https://serviced.co.il/wp-content/uploads/2021/08/%D7%A
     
 #@st.experimental_memo
 def tweets():
-
+    filename = "Data\\diplomat.csv"
+    # opening the file with w+ mode truncates the file
+    f = open(filename, "w+")
+    f.close()
     #nest_asyncio.apply()
 
     c = twint.Config()
@@ -28,7 +31,7 @@ def tweets():
     c.Search = 'דיפלומט'       # topic
     #c.Limit = 500      # number of Tweets to scrape
     c.Store_csv = True       # store tweets in a csv file
-    c.Output = "Data\\diplomat.csv"     # path to csv file
+    c.Output = filename     # path to csv file
 
     c.Hide_output = True
     twint.run.Search(c)
