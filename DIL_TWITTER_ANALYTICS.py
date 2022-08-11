@@ -169,7 +169,7 @@ if st.button('Results:'):
         most_liked_tweet = most_liked_tweet
         most_liked_retweet = day_df[cond2]["retweets_count"].values[0]
         most_liked_replies = day_df[cond2]["replies_count"].values[0]
-        most_liked_link = day_df[cond2]["link"]
+        most_liked_link = day_df[cond2]["link"].values[0]
         st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet} Link: {most_liked_link}")
         
         #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
