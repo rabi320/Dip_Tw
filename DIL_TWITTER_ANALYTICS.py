@@ -22,8 +22,8 @@ st.markdown("""<img src="https://serviced.co.il/wp-content/uploads/2021/08/%D7%A
 def tweets():
     filename = "Data\\diplomat.csv"
     # opening the file with w+ mode truncates the file
-    f = open(filename, "w+")
-    f.close()
+    # f = open(filename, "w+")
+    # f.close()
     #nest_asyncio.apply()
 
     c = twint.Config()
