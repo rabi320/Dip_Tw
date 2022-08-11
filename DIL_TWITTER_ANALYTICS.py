@@ -29,7 +29,7 @@ def tweets():
 
     c.Hide_output = True
     twint.run.Search(c)
-    df = pd.read_csv('Data\\diplomat.csv', encoding= 'unicode_escape')
+    df = pd.read_csv('Data\\diplomat.csv', encoding= 'UTF-8')
     return df
 
 
