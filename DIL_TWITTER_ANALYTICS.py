@@ -172,7 +172,7 @@ if st.button('Results:'):
         most_liked_link = day_df[cond2]["link"].values[0]
         
         st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet}")
-        st.write(f'Link: [link]({most_liked_link})')
+        st.write(f'[Original Tweet on twitter]({most_liked_link})')
         
         #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
         #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
