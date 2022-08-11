@@ -156,25 +156,25 @@ if st.button('Results:'):
         except:
             st.write(f"{dip_imgs_daily(days_ago = td)}")
 
-        st.write(f"""### most liked tweet: """)
-        date = datetime.strftime(datetime.now() - timedelta(td), '%Y-%m-%d')
-        cond1 = df['date']==date
-        day_df = df[cond1]
-        cond2 = day_df['likes_count']==day_df['likes_count'].max()
-        most_liked_tweet = day_df[cond2]["tweet"].values[0]
-        most_liked_person = day_df[cond2]["username"].values[0]
-        most_liked_tweet = most_liked_tweet
-        most_liked_retweet = day_df[cond2]["retweets_count"].values[0]
-        most_liked_replies = day_df[cond2]["replies_count"].values[0]
-        most_liked_link = day_df[cond2]["link"].values[0]
+#         st.write(f"""### most liked tweet: """)
+#         date = datetime.strftime(datetime.now() - timedelta(td), '%Y-%m-%d')
+#         cond1 = df['date']==date
+#         day_df = df[cond1]
+#         cond2 = day_df['likes_count']==day_df['likes_count'].max()
+#         most_liked_tweet = day_df[cond2]["tweet"].values[0]
+#         most_liked_person = day_df[cond2]["username"].values[0]
+#         most_liked_tweet = most_liked_tweet
+#         most_liked_retweet = day_df[cond2]["retweets_count"].values[0]
+#         most_liked_replies = day_df[cond2]["replies_count"].values[0]
+#         most_liked_link = day_df[cond2]["link"].values[0]
         
-        st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet}")
-        st.write(f'[Original Tweet on twitter]({most_liked_link})')
+#         st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet}")
+#         st.write(f'[Original Tweet on twitter]({most_liked_link})')
         
-        #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
-        #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
-        st.write("### Top 10 liked tweets")
-        st.table(day_df[["tweet","likes_count"]].drop_duplicates().sort_values('likes_count', ascending = False)[:10])
+#         #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
+#         #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
+#         st.write("### Top 10 liked tweets")
+#         st.table(day_df[["tweet","likes_count"]].drop_duplicates().sort_values('likes_count', ascending = False)[:10])
 
         important = []
 
