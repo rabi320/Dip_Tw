@@ -196,3 +196,4 @@ if st.button('Results:'):
     except Exception as e:
         st.write(f'No Data avilable for {date_select}')
         st.write(f'{e}')
+        
