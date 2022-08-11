@@ -145,6 +145,7 @@ def dip_imgs_daily(days_ago = 0):
 
 if st.button('Results:'):
     try:
+        st.text(f'{df.columns.tolist()}')
 #         td = datetime.now().date() - date_select
 #         td = td.days
 #         #st.write(f'{td}')
