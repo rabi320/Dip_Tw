@@ -145,16 +145,16 @@ def dip_imgs_daily(days_ago = 0):
 
 if st.button('Results:'):
     try:
-        td = datetime.now().date() - date_select
-        td = td.days
-        #st.write(f'{td}')
-        st.write(f"""## Stats for {date_select}""")
+#         td = datetime.now().date() - date_select
+#         td = td.days
+#         #st.write(f'{td}')
+#         st.write(f"""## Stats for {date_select}""")
 
-        try: 
-            st.image(dip_imgs_daily(days_ago = td))
+#         try: 
+#             st.image(dip_imgs_daily(days_ago = td))
 
-        except:
-            st.write(f"{dip_imgs_daily(days_ago = td)}")
+#         except:
+#             st.write(f"{dip_imgs_daily(days_ago = td)}")
 
 #         st.write(f"""### most liked tweet: """)
 #         date = datetime.strftime(datetime.now() - timedelta(td), '%Y-%m-%d')
