@@ -25,11 +25,11 @@ def tweets():
     c.Search = 'דיפלומט'       # topic
     #c.Limit = 500      # number of Tweets to scrape
     c.Store_csv = True       # store tweets in a csv file
-    c.Output = "Data\\diplomat.csv"     # path to csv file
+    c.Output = "diplomat.csv"     # path to csv file
 
     c.Hide_output = True
     twint.run.Search(c)
-    df = pd.read_csv('Data\\diplomat.csv', encoding= 'UTF-8')
+    df = pd.read_csv('diplomat.csv', encoding= 'UTF-8')
     return df
 
 
