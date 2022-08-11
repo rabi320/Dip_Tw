@@ -18,7 +18,7 @@ st.markdown("""<img src="https://serviced.co.il/wp-content/uploads/2021/08/%D7%A
 
 #with st.spinner('Loading tweets in app...'):
     
-@st.experimental_memo
+#@st.experimental_memo
 def tweets():
 
     #nest_asyncio.apply()
