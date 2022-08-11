@@ -167,7 +167,11 @@ if st.button('Results:'):
         most_liked_tweet = day_df[cond2]["tweet"].values[0]
         most_liked_person = day_df[cond2]["username"].values[0]
         most_liked_tweet = most_liked_tweet
-        st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}")
+        most_liked_retweet = day_df[cond2]["retweets_count"].values[0]
+        most_liked_replies = day_df[cond2]["replies_count"].values[0]
+        
+        st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet}")
+        
         #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
         #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
         st.write("### Top 10 liked tweets")
