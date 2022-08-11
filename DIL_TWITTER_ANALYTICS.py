@@ -144,56 +144,56 @@ def dip_imgs_daily(days_ago = 0):
 
 
 if st.button('Results:'):
-    try:
-        td = datetime.now().date() - date_select
-        td = td.days
-        #st.write(f'{td}')
-        st.write(f"""## Stats for {date_select}""")
+    #try:
+    td = datetime.now().date() - date_select
+    td = td.days
+    #st.write(f'{td}')
+    st.write(f"""## Stats for {date_select}""")
 
-        try: 
-            st.image(dip_imgs_daily(days_ago = td))
+#         try: 
+#             st.image(dip_imgs_daily(days_ago = td))
 
-        except:
-            st.write(f"{dip_imgs_daily(days_ago = td)}")
+#         except:
+#             st.write(f"{dip_imgs_daily(days_ago = td)}")
 
-        st.write(f"""### most liked tweet: """)
-        date = datetime.strftime(datetime.now() - timedelta(td), '%Y-%m-%d')
-        cond1 = df['date']==date
-        day_df = df[cond1]
-        cond2 = day_df['likes_count']==day_df['likes_count'].max()
-        most_liked_tweet = day_df[cond2]["tweet"].values[0]
-        most_liked_person = day_df[cond2]["username"].values[0]
-        most_liked_tweet = most_liked_tweet
-        most_liked_retweet = day_df[cond2]["retweets_count"].values[0]
-        most_liked_replies = day_df[cond2]["replies_count"].values[0]
-        most_liked_link = day_df[cond2]["link"].values[0]
-        
-        st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet}")
-        st.write(f'[Original Tweet on twitter]({most_liked_link})')
-        
-        #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
-        #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
-        st.write("### Top 10 liked tweets")
-        st.table(day_df[["tweet","likes_count"]].drop_duplicates().sort_values('likes_count', ascending = False)[:10])
+    st.write(f"""### most liked tweet: """)
+    date = datetime.strftime(datetime.now() - timedelta(td), '%Y-%m-%d')
+    cond1 = df['date']==date
+    day_df = df[cond1]
+    cond2 = day_df['likes_count']==day_df['likes_count'].max()
+    most_liked_tweet = day_df[cond2]["tweet"].values[0]
+    most_liked_person = day_df[cond2]["username"].values[0]
+    most_liked_tweet = most_liked_tweet
+    most_liked_retweet = day_df[cond2]["retweets_count"].values[0]
+    most_liked_replies = day_df[cond2]["replies_count"].values[0]
+    most_liked_link = day_df[cond2]["link"].values[0]
 
-        important = []
+    st.text(f"{most_liked_person} - {most_liked_tweet} Likes: {day_df['likes_count'].max()}\n Replies count: {most_liked_replies} Retweet count: {most_liked_retweet}")
+    st.write(f'[Original Tweet on twitter]({most_liked_link})')
 
-        all_words = tokenizer(" ".join(day_df.drop_duplicates().tweet.values.tolist()))
+    #st.text(f"{most_liked_tweet.encode('UTF-8-sig')}")
+    #st.dataframe(pd.DataFrame(day_df[cond2]["tweet"]))
+    st.write("### Top 10 liked tweets")
+    st.table(day_df[["tweet","likes_count"]].drop_duplicates().sort_values('likes_count', ascending = False)[:10])
 
-        regex = '(guylerer)|[^a-z0-9]'
+    important = []
+
+    all_words = tokenizer(" ".join(day_df.drop_duplicates().tweet.values.tolist()))
+
+    regex = '(guylerer)|[^a-z0-9]'
 
 
 
-        filltered_words = [word for word in all_words if word not in stop_words and re.search(regex,word)]
-        top_10_w = Counter(filltered_words).most_common(11)
+    filltered_words = [word for word in all_words if word not in stop_words and re.search(regex,word)]
+    top_10_w = Counter(filltered_words).most_common(11)
 
-        fig, ax = plt.subplots()
-        ax.bar([i[::-1] for i,_ in top_10_w[1:]],[j for _,j in top_10_w[1:]])
-        ax.set_title('Top 10 most common words')
-        #ax.set_xticks(rotation = 90)
-        ax.set_xticklabels([i[::-1] for i,_ in top_10_w[1:]], rotation = 45)
-        st.pyplot(fig)
-    except Exception as e:
-        st.write(f'No Data avilable for {date_select}')
-        st.write(f'{e}')
+    fig, ax = plt.subplots()
+    ax.bar([i[::-1] for i,_ in top_10_w[1:]],[j for _,j in top_10_w[1:]])
+    ax.set_title('Top 10 most common words')
+    #ax.set_xticks(rotation = 90)
+    ax.set_xticklabels([i[::-1] for i,_ in top_10_w[1:]], rotation = 45)
+    st.pyplot(fig)
+    # except Exception as e:
+    #     st.write(f'No Data avilable for {date_select}')
+    #     st.write(f'{e}')
         
