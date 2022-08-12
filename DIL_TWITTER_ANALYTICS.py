@@ -33,7 +33,7 @@ def tweets():
     return df
 
 
-df = tweets()
+
     
 
 def flatten(lst: List[Any]) -> Iterable[Any]:
@@ -144,6 +144,7 @@ def dip_imgs_daily(days_ago = 0):
 
 
 if st.button('Results:'):
+    df = tweets()
     try:
         #st.text(f'{df.columns.tolist()}')
         td = datetime.now().date() - date_select
