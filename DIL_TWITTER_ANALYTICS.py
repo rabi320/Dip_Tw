@@ -11,7 +11,7 @@ from PIL import Image
 from urllib.request import urlopen
 import re
 from collections import Counter
-
+from wordcloud import WordCloud
 
 st.markdown("""<img src="https://serviced.co.il/wp-content/uploads/2021/08/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%93%D7%99%D7%A4%D7%9C%D7%95%D7%9E%D7%98.jpg)" alt="drawing" width="200"/>""", unsafe_allow_html=True)
 
@@ -185,17 +185,27 @@ if st.button('Results:'):
         regex = '(guylerer)|[^a-z0-9]'
 
 
+        # all tweets
+        tw = " ".join([re.sub(r'\s*[A-Za-z]+\b', '' , word[::-1]) for word in day_df['tweet'].values.tolist()])
+        tw = " ".join(tokenizer(tw))
+        wordcloud = WordCloud(width = 800, height = 800,
+                background_color ='white',
+                #stopwords = stopwords,
+                font_path=r'Data\FreeSansBold.ttf',              
+                min_font_size = 10).generate(tw)
+        # plot the WordCloud image                      
 
-        filltered_words = [word for word in all_words if word not in stop_words and re.search(regex,word)]
-        top_10_w = Counter(filltered_words).most_common(11)
-
-        fig, ax = plt.subplots()
-        ax.bar([i[::-1] for i,_ in top_10_w[1:]],[j for _,j in top_10_w[1:]])
-        ax.set_title('Top 10 most common words')
-        #ax.set_xticks(rotation = 90)
-        ax.set_xticklabels([i[::-1] for i,_ in top_10_w[1:]], rotation = 45)
+        fig, ax = plt.subplots(figsize = (8, 8), facecolor = None)
+        ax.imshow(wordcloud, interpolation='bilinear')
+        plt.axis("off")
+        plt.tight_layout(pad = 0)
+        t_text = " - ניתוח שיח ברשת טוויטר"
+        plt.title(t_text[::-1] + f" {date}", size = 20)
+        plt.show()
         st.pyplot(fig)
     except Exception as e:
         st.write(f'No Data avilable for {date_select}')
         st.write(f'{e}')
+        
+        
         
