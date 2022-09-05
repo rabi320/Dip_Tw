@@ -13,8 +13,14 @@ import re
 from collections import Counter
 from wordcloud import WordCloud
 
-st.markdown("""<img src="Data/Dip.jpg" width="200"/>""", unsafe_allow_html=True)
-#st.image(r'Data/Dip.jpg')
+#st.markdown("""<img src="Data/Dip.jpg" width="200"/>""", unsafe_allow_html=True)
+
+
+img = Image.open(r'Data/Dip.jpg') # image extension *.png,*.jpg
+new_width  = 200
+new_height = 300
+img = img.resize((new_width, new_height), Image.ANTIALIAS)
+st.image(img)
 
 #with st.spinner('Loading tweets in app...'):
     
