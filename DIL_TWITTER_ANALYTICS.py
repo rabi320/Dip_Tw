@@ -191,7 +191,7 @@ if st.button('Results:'):
         wordcloud = WordCloud(width = 800, height = 800,
                 background_color ='white',
                 #stopwords = stopwords,
-                #font_path='FreeSansBold.ttf',              
+                font_path='FreeSansBold.ttf',              
                 min_font_size = 10).generate(tw)
         # plot the WordCloud image                      
 
