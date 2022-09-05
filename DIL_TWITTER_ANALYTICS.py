@@ -13,7 +13,7 @@ import re
 from collections import Counter
 from wordcloud import WordCloud
 
-st.markdown("""<img src="Data\Dip.jpg)" alt="drawing" width="200"/>""", unsafe_allow_html=True)
+#st.markdown("""<img src="Data\Dip.jpg)" alt="drawing" width="200"/>""", unsafe_allow_html=True)
 
 
 #with st.spinner('Loading tweets in app...'):
