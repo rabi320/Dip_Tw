@@ -17,7 +17,7 @@ from wordcloud import WordCloud
 
 
 img = Image.open(r'Data/Dip.jpg') # image extension *.png,*.jpg
-new_width  = 200
+new_width  = 300
 new_height = 300
 img = img.resize((new_width, new_height), Image.ANTIALIAS)
 st.image(img)
