@@ -14,7 +14,7 @@ from collections import Counter
 from wordcloud import WordCloud
 
 #st.markdown("""<img src="Data\Dip.jpg" alt="drawing" width="200"/>""", unsafe_allow_html=True)
-st.image('Data\Dip.jpg')
+st.image(r'Data\Dip.jpg')
 
 #with st.spinner('Loading tweets in app...'):
     
